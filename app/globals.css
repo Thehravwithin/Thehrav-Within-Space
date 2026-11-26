@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+/* Thehrav Within working palette */
+@theme {
+  --color-ivory: #f4efe6;
+  --color-sage: #a8b5a0;
+  --color-earth: #796653;
+  --color-oat: #d8c8b2;
+  --color-rose: #c7a59a;
+  --color-olive: #4b5547;
+}
+
+@theme {
+  --font-serif: "Fraunces Variable", Georgia, serif;
+  --font-sans: "Nunito Variable", system-ui, sans-serif;
+}
+
+html,
+body {
+  background-color: var(--color-ivory);
+  color: var(--color-olive);
+}
+
+/* Soft paper grain */
+body {
+  background-image:
+    radial-gradient(rgba(121, 102, 83, 0.06) 1px, transparent 1px),
+    radial-gradient(rgba(121, 102, 83, 0.04) 1px, transparent 1px);
+  background-size: 22px 22px, 37px 37px;
+  background-position: 0 0, 11px 7px;
+}
+
+@layer components {
+  /* A card that looks like it was taped into a journal */
+  .paper-card {
+    position: relative;
+    background-color: #fbf8f2;
+    border: 1px solid rgba(121, 102, 83, 0.18);
+    border-radius: 14px;
+    box-shadow: 0 2px 0 rgba(121, 102, 83, 0.08), 0 8px 20px -12px rgba(75, 85, 71, 0.35);
+  }
+
+  .paper-card.taped::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    width: 72px;
+    height: 20px;
+    transform: translateX(-50%) rotate(-3deg);
+    background-color: rgba(216, 200, 178, 0.75);
+    border-radius: 2px;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-earth);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
